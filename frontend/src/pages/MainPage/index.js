@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import Database from '../../database.json';
 import api from '../../services/api';
 
 import Colors from '../../colors';
@@ -14,6 +13,37 @@ import ListAddedProducts from '../../components/ListAddedProducts';
 
 export default function MainPage() {
 	const [theme, setTheme] = useState('');
+	const [listProducts, setListProducts] = useState([]);
+	const [selectedProducts, setSelectedProducts] = useState([]);
+
+	function handleSelectProduct() {
+		const value = localStorage.getItem('@SelectProduct');
+		console.log(value);
+		let auxList = [];
+		let auxSelected = selectedProducts;
+		listProducts.map(function (item) {
+			if (item.codProduto !== parseInt(value)) auxList.push(item);
+			else auxSelected.push(item);
+			return 0;
+		});
+		setSelectedProducts(auxSelected);
+		setListProducts(auxList);
+		localStorage.setItem('@SelectProduct', '');
+	}
+
+	function handleDeselectProduct() {
+		const value = localStorage.getItem('@DeselectProduct');
+		let auxList = listProducts;
+		let auxSelected = [];
+		selectedProducts.map(function (item) {
+			if (item.codProduto !== parseInt(value)) auxSelected.push(item);
+			else auxList.push(item);
+			return 0;
+		});
+		setSelectedProducts(auxSelected);
+		setListProducts(auxList);
+		localStorage.setItem('@DeselectProduct', '');
+	}
 
 	async function ThemeSet() {
 		localStorage.getItem('themeMode')
@@ -21,15 +51,52 @@ export default function MainPage() {
 			: setTheme('light');
 	}
 
-	async function handleData() {
-		const data = await api.get('products');
+	function handleData() {
+		//const data = await api.get('produto');
+		let data = [
+			{
+				id: 1,
+				codProduto: 3321,
+				grupo: 'Grupo',
+				item: 'Item',
+				transcricao: 'Teste Transcrição 1',
+				valor: 10.0,
+				servicos: [],
+			},
+			{
+				id: 2,
+				codProduto: 3320,
+				grupo: 'Grupo 2',
+				item: 'Item',
+				transcricao: 'Teste 2',
+				valor: 10.0,
+				servicos: [
+					{
+						codServico: 1,
+						nomeServico: 'Serviço 2',
+						cargaHoraria: 30,
+						qtn: 1,
+						valor: 10.0,
+						ProdutoId: 2,
+					},
+					{
+						codServico: 2,
+						nomeServico: 'Serviço 1',
+						cargaHoraria: 30,
+						qtn: 1,
+						valor: 10.0,
+						ProdutoId: 2,
+					},
+				],
+			},
+		];
 		setListProducts(data);
 	}
 
 	useEffect(() => {
 		if (theme === '') ThemeSet();
-		if (listProducts.length !== 0) handleData();
-	}, [theme]);
+		if (listProducts.length === 0) handleData();
+	}, [theme, listProducts]);
 
 	return (
 		<div className='MainPage'>
@@ -73,7 +140,7 @@ export default function MainPage() {
 							borderRadius: '15px',
 						}}
 					>
-						<ListProduct data={listProducts} addFunction={handleAddProduct} />
+						<ListProduct data={listProducts} function={handleSelectProduct} />
 					</div>
 					<div
 						className='ListItens'
@@ -84,7 +151,7 @@ export default function MainPage() {
 					>
 						<ListAddedProducts
 							data={selectedProducts}
-							functionRemove={handleRemoveProduct}
+							function={handleDeselectProduct}
 						/>
 					</div>
 				</div>

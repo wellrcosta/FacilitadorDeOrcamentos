@@ -18,11 +18,11 @@ namespace backend.Models
         }
 
         public DbSet<Produto> Produto { get; set; }
-        public DbSet<Servico> Servico{ get; set; }
+        public DbSet<Servico> Servico { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Password=;Persist Security Info=True;User ID=sa;Initial Catalog=AppModulos;Data Source=LAP-LENOVO084\\LANTEK2019");
+            optionsBuilder.UseSqlServer("Password=;Persist Security Info=True;User ID=sa;Initial Catalog=AppModulos;Data Source=DESKTOP-P4ASGFR\\LANTEK");
         }
 
     }

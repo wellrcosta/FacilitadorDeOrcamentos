@@ -10,10 +10,6 @@ export default function ListProducts(props) {
 	const unformattedData = props.data;
 	let data;
 
-	function count() {
-		console.log('Contador');
-	}
-
 	data = unformattedData.map((item) => (
 		<tr key={item.id}>
 			<th id='1'>
@@ -22,9 +18,8 @@ export default function ListProducts(props) {
 			<th id='2'>{item.transcricao}</th>
 			<th id='3'>
 				<RemoveItem
-					count={count}
 					theme='light'
-					removeFunction={props.functionRemove}
+					function={props.function}
 					targetValue={item.codProduto}
 				/>
 			</th>

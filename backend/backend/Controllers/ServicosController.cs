@@ -12,23 +12,23 @@ namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ServicoeController : ControllerBase
+    public class ServicosController : ControllerBase
     {
         private readonly OrcamentoContext _context;
 
-        public ServicoeController(OrcamentoContext context)
+        public ServicosController(OrcamentoContext context)
         {
             _context = context;
         }
 
-        // GET: api/Servicoe
+        // GET: api/Servicos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Servico>>> GetServico()
         {
             return await _context.Servico.ToListAsync();
         }
 
-        // GET: api/Servicoe/5
+        // GET: api/Servicos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Servico>> GetServico(int id)
         {
@@ -42,7 +42,7 @@ namespace backend.Controllers
             return servico;
         }
 
-        // PUT: api/Servicoe/5
+        // PUT: api/Servicos/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -61,7 +61,7 @@ namespace backend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ServicoExists(id))
+                if (!Servicosxists(id))
                 {
                     return NotFound();
                 }
@@ -74,7 +74,7 @@ namespace backend.Controllers
             return NoContent();
         }
 
-        // POST: api/Servicoe
+        // POST: api/Servicos
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -86,7 +86,7 @@ namespace backend.Controllers
             return CreatedAtAction("GetServico", new { id = servico.codServico }, servico);
         }
 
-        // DELETE: api/Servicoe/5
+        // DELETE: api/Servicos/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Servico>> DeleteServico(int id)
         {
@@ -102,7 +102,7 @@ namespace backend.Controllers
             return servico;
         }
 
-        private bool ServicoExists(int id)
+        private bool Servicosxists(int id)
         {
             return _context.Servico.Any(e => e.codServico == id);
         }
