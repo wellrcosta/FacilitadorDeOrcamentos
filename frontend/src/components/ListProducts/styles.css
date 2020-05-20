@@ -1,0 +1,30 @@
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td,
+th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+th {
+	font-weight: normal;
+}
+
+.TableTitle th {
+	text-align: center;
+	font-weight: bold;
+	font-size: medium;
+}
+
+.DisplayData {
+	font-weight: normal;
+}

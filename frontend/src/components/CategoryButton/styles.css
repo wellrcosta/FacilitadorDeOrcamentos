@@ -1,0 +1,12 @@
+.buttonMain {
+	position: relative;
+	display: flex;
+	border-radius: 10px;
+	height: 110px;
+	width: 250px;
+	margin: 20px;
+}
+.textMain {
+	font-size: 32px;
+	margin: auto;
+}

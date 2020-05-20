@@ -1,0 +1,39 @@
+.MainPage {
+	padding: 20px;
+}
+
+.Header {
+	position: relative;
+	display: flex;
+}
+
+.ImgHeader {
+	width: 250px;
+	margin: 20px;
+}
+
+.TitleHeader {
+	font-size: 30px;
+	margin: auto;
+}
+
+.DataShow {
+	display: flex;
+	position: relative;
+	margin: auto;
+}
+
+.Groups {
+	margin: auto;
+	width: 20%;
+}
+
+.ListItens {
+	overflow: auto;
+	height: 250px;
+}
+
+.GroupLists {
+	margin: auto;
+	width: 80%;
+}
