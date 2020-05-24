@@ -1,5 +1,6 @@
+@import '../../App.scss';
+
 table {
-	font-family: arial, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
 }
@@ -16,15 +17,11 @@ tr:hover {
 }
 
 th {
-	font-weight: normal;
-}
-
-.TableTitle th {
-	text-align: center;
 	font-weight: bold;
+	text-align: center;
 	font-size: medium;
 }
 
-.DisplayData {
+td {
 	font-weight: normal;
 }

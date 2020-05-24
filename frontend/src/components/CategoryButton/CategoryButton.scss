@@ -1,12 +1,17 @@
-.buttonMain {
+@import '../../App.scss';
+
+.ButtonMain {
 	position: relative;
 	display: flex;
 	border-radius: 10px;
 	height: 110px;
 	width: 250px;
 	margin: 20px;
+	background-color: $primary;
+	color: $white;
 }
-.textMain {
+
+.TextMain {
 	font-size: 32px;
 	margin: auto;
 }

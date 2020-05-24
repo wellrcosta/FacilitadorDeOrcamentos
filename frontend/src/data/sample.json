@@ -1,0 +1,23 @@
+[
+	{
+		"grupo": "Programação",
+		"codProduto": 16034,
+		"transcricao": "Atualização Lantek Expert Cut Plus",
+		"valor": 4283,
+		"servicos": []
+	},
+	{
+		"grupo": "Programação",
+		"codProduto": 16050,
+		"transcricao": "Atualização Lantek Punch Plus",
+		"valor": 4283,
+		"servicos": []
+	},
+	{
+		"grupo": "Programação",
+		"codProduto": 16024,
+		"transcricao": "Atualização Lantek Gold",
+		"valor": 4283,
+		"servicos": []
+	}
+]
