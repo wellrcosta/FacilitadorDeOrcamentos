@@ -21,19 +21,23 @@
 	display: flex;
 	position: relative;
 	margin: auto;
+	align-content: center;
 }
 
 .Groups {
-	margin: auto;
-	width: 20%;
+	vertical-align: center;
+	margin-right: 10%;
+	margin-left: auto;
 }
 
 .ListItens {
-	overflow: auto;
-	height: 250px;
+	margin-right: auto;
 }
 
-.GroupLists {
-	margin: auto;
-	width: 80%;
+.ListedItens {
+	overflow: auto;
+}
+
+.BlocksOfContent {
+	display: inline-block;
 }

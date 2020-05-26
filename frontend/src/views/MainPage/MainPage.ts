@@ -1,14 +1,14 @@
 import { Component, Vue } from 'vue-property-decorator';
-import ListProducts from '@/components/ListProducts/ListProducts.vue';
-import CategoryButton from '@/components/CategoryButton/CategoryButton.vue';
-import { mapActions, mapGetters } from 'vuex';
 import { Action, Getter } from 'vuex-class';
+import ListProducts from '@/components/ListProducts/ListProducts.vue';
+import ListSelecteds from '@/components/ListSelecteds/ListSelecteds.vue';
+import CategoryButton from '@/components/CategoryButton/CategoryButton.vue';
+import ContractTime from '@/components/ContractTime/ContractTime.vue';
+import NextButton from '@/components/NextButton/NextButton.vue';
+import ProductBlock from '@/components/ProductBlock/ProductBlock.vue';
 
 @Component({
-	components: {
-		ListProducts,
-		CategoryButton,
-	},
+	components: { ProductBlock },
 })
 export default class MainPage extends Vue {
 	@Action('selectProduct')
@@ -20,20 +20,8 @@ export default class MainPage extends Vue {
 	@Action('setGroup')
 	public setGroup?: (group: string) => void;
 
-	@Getter('produtosProgramacao')
-	public produtosProgramacao?: () => [];
-
-	@Getter('produtosOrcamento')
-	public produtosOrcamento?: () => [];
-
-	@Getter('produtosInventario')
-	public produtosInventario?: () => [];
-
-	@Getter('produtosGestao')
-	public produtosGestao?: () => [];
-
-	@Getter('getSelecteds')
-	public getSelecteds?: () => [];
+	@Getter('produtos')
+	public produtos?: () => [];
 
 	@Getter('getGroup')
 	public getGroup?: () => string;
